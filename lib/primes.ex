@@ -1,7 +1,8 @@
 defmodule Primes do
 
   def primes_bis(n) do
-    for num <- 2..n, is_prime?(num), do: num
+    primes = for num <- 2..n, is_prime?(num), do: num
+    Enum.at primes, 10001 #=> 104759
   end
 
   defp is_prime?(2), do: true
