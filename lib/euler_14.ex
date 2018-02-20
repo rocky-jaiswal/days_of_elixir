@@ -1,6 +1,6 @@
 defmodule Euler_14 do
 
-  def calc(num, acc \\ []) do
+  defp calc(num, acc \\ []) do
     num = trunc(num)
     dec = num / 2
     inc = (num * 3) + 1
@@ -14,8 +14,8 @@ defmodule Euler_14 do
 
   defp pmap(collection) do
     collection
-    |> Enum.map(&(Task.async(fn -> calc(&1) end)))
-    |> Enum.map(&Task.await/1)
+      |> Enum.map(&(Task.async(fn -> calc(&1) end)))
+      |> Enum.map(&Task.await/1)
   end
 
   def collatz do
