@@ -1,4 +1,4 @@
-defmodule Euler_15 do
+defmodule Euler_16 do
 
   def calc do
     1..1000
