@@ -42,13 +42,10 @@ defmodule Euler_7 do
     end
   end
 
-  def prime_sieve do
-    num = 200_000
-    sqrt = trunc(Float.ceil :math.sqrt num)
-
+  def prime_sieve(num) do
     {:ok, pid} = PrimeState.start_link(num)
 
-    2..sqrt
+    2..trunc(Float.ceil :math.sqrt num)
       |> Enum.map(fn(e) -> trunc(e) end)
       |> Enum.each(fn (e) -> filter_non_primes(e, num, pid) end)
 
