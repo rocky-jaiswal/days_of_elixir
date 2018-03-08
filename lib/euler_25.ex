@@ -28,7 +28,8 @@ end
 
 defmodule Euler_25 do
 
-  def factorial(n) do
+  # Simple implementation not used for actual solution
+  def fibonacci(n) do
     case {n} do
       {1} -> 1
       {2} -> 1
@@ -36,7 +37,7 @@ defmodule Euler_25 do
     end
   end
 
-  def memoized_factorial(n, pid) do
+  def memoized_fibonacci(n, pid) do
     state = FactState.get_state pid
     x = Enum.at(state, n - 1) + Enum.at(state, n - 2)
     FactState.update_state(pid, x)
